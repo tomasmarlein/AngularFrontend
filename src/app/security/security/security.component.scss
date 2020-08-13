@@ -1,0 +1,31 @@
+.btn-primary {
+    background-color: rgb(156, 36, 18);
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover{
+    background-color: rgb(102, 27, 15);
+    cursor: pointer;
+}
+
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+    height: 80%;
+    width: 40%;
+    margin-top: 3%;
+    border: none;
+}
+
+.logo{
+    width: 50%;
+    margin: auto;
+    margin-bottom: 3%;
+}
+
+img{
+    width: 100%;
+}
+

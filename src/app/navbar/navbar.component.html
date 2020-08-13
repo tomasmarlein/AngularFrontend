@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <a class="navbar-brand" routerLink="#"><span class="red">Poll</span>Master</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <ul class="navbar-nav ml-auto">
+      <div *ngIf="!loggedIn">
+      <li><a class="nav-item nav-link active" routerLink="/">Login <span class="sr-only">(current)</span></a></li>
+    </div>
+    <div *ngIf="loggedIn">
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="../../assets/avatar.png" width="30" height="30" class="rounded-circle" alt="">
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" (click)="logOut()">Logout</a>
+          </div>
+        </li>
+      </div>
+    </ul>
+  </div>
+</nav>

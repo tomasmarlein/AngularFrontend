@@ -1,0 +1,29 @@
+<h2 class="text-center">Uw uitgenodigde polls</h2>
+<ul class="list-group">
+    <li *ngFor="let p of (polls | async)" class="list-group-item">{{p.topic }}   <button (click)="showDetailPoll(p, content)" type="button" class="btn btn-primary">Show</button>
+        <!-- <ul>
+            <li *ngFor="let c of (p.choices | async)">Waarde :  and Votes {{c.votes}}</li>
+        </ul> -->
+    </li>
+</ul>
+<!-- 
+<p *ngIf="chosenPoll">You have chosen {{chosenMember.name}}</p> -->
+<!-- <button mat-raised-button color="primary" (click)="addMember()">Add a member</button>
+<button mat-button color="accent" (click)="updateMember()">Update a member</button> -->
+<!-- <button mat-raised-button color="warn" (click)="deleteMember()">Delete a member</button> -->
+<!-- <app-poll-detail *ngIf="selectedPoll" [poll]="selectedPoll" (choosePoll)="onChoosePoll($event)"></app-poll-detail> -->
+
+<ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Detail</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+                <app-poll-detail *ngIf="selectedPoll" [poll]="selectedPoll" (choosePoll)="onChoosePoll($event)"></app-poll-detail>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+        </div> -->
+      </ng-template>

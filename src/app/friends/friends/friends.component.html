@@ -1,0 +1,16 @@
+<br/>
+<div class="container">
+<a routerLink="/dashboard">Terug</a>
+<h2>Maak vrienden</h2>
+<input type="text" class="form-control" [(ngModel)]="userSearch" placeholder="Search friends" (keyup)="getUsers($event)"/>
+
+<ul class="list-group">
+    <li *ngFor="let u of users" class="list-group-item">{{u.name }} {{u.email}}  <button (click)="sendRequest(u)"  type="button" class="btn btn-primary">Send friend request</button>
+    </li>
+    <div *ngIf="users && users.length == 0">    
+            <p>{{userSearch}} - <button (click)="sendEmail(userSearch)"  type="button" class="btn btn-secondary">uitnodigen</button></p>
+        </div>
+</ul>
+</div>
+
+<!-- (click)="showDetailPoll(p)" -->

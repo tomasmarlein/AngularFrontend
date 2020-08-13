@@ -1,0 +1,19 @@
+<div class="card">
+        <a routerLink="/dashboard">Terug</a>
+        <h2>Voeg poll toe</h2>
+        <br><br>
+
+        <form (ngSubmit)="onSubmit()" #studentForm="ngForm">
+        <p>Onderwerp:
+        <input type="text" class="form-control" [(ngModel)]="model.topic" name="topic" required/></p>
+        Keuzes:
+        
+            <div *ngFor="let c of choices; let i=index">
+                <input type="text" [(ngModel)]="c.value" class="form-control" name="choice{{i}}" required>
+                <br/>
+            </div>
+            <button (click)="addNewChoice()" type="button" class="btn btn-secondary">Nieuwe keuze</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!studentForm.form.valid || submitted">Submit</button>
+        </form>
+</div>
+

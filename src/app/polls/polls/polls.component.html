@@ -1,0 +1,42 @@
+<h2 class="text-center">Uw Polls</h2>
+<a routerLink="/polladd"><button class="btn btn-primary pull-right" >Nieuwe poll</button></a>
+<br><br>
+<ul class="list-group">
+    <li *ngFor="let p of (polls | async)" class="list-group-item">{{p.topic }}   <button (click)="showDetailPoll(p, content)" type="button" class="btn btn-primary">Toon</button><button (click)="showDetailFriend(p, invite)" type="button" class="btn btn-secondary">Vriend uitnodigen</button><button (click)="deletePoll(p._id)" type="button" class="btn btn-verwijder"><i class="material-icons">delete</i></button>
+        <!-- <ul>
+            <li *ngFor="let c of (p.choices | async)">Waarde :  and Votes {{c.votes}}</li>
+        </ul> -->
+    </li>
+</ul>
+<br/>
+
+<ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Detail</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+                <app-poll-detail *ngIf="selectedPoll" [poll]="selectedPoll" (choosePoll)="onChoosePoll($event)"></app-poll-detail>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+        </div> -->
+      </ng-template>
+
+      <ng-template #invite let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Vrienden uitnodigen</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+                  <app-invitelist *ngIf="selectedPoll" [poll]="selectedPoll" (choosePoll)="onChoosePoll($event)"></app-invitelist>
+          </div>
+          <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+          </div> -->
+        </ng-template>
+
